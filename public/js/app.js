@@ -1,7 +1,7 @@
 $(document).foundation();
 
 var lightboxItems = [];
-var lightbox;
+var pswpElement = $('.pswp')[0];
 
 var prepareLightboxImages = function() {
 	$('.lightbox').each(function() {
@@ -20,19 +20,36 @@ var prepareLightboxImages = function() {
 	});
 };
 
+var findIndexForImage = function(link) {
+	var i = 0;
+
+	var index;
+
+	$('.lightbox').each(function() {
+		if(this === link) {
+			index = i;
+			return false;
+		}
+		i++;
+	});
+
+	if(typeof(index) === 'undefined') {
+		return 0;
+	}
+	else {
+		return index;
+	}
+}
+
 var showLightbox = function(source) {
-	// TODO: start at right index
+	var options = {
+		index: findIndexForImage(source)
+	};
+
+	var lightbox = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, lightboxItems, options);
 	lightbox.init();
 };
 
 $(document).ready(function() {
 	prepareLightboxImages();
-	console.dir(lightboxItems);
-
-	var options = {
-		index: 0
-	};
-
-	var pswpElement = $('.pswp')[0];
-	lightbox = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, lightboxItems, options);
 });
