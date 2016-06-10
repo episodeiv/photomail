@@ -1,10 +1,36 @@
-<!DOCTYPE html>
-<html lang="de">
+<!doctype html>
+<html class="no-js" lang="de" dir="ltr">
 <head>
 	<meta charset="utf-8">
-	<title>schwafenthaeler</title>
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Schwafenthaeler + 1</title>
+	<link rel="stylesheet" href="css/foundation.css">
+	<link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-[% content %]
+	<div class="row">
+		<div class="large-12 columns">
+			<h1>Schwafenthaeler + 1</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="large-8 medium-8 columns">
+
+			[% content %]
+
+		</div>
+
+		<div class="large-4 medium-4 columns">
+			<h5>Die aktuellsten Einträge:</h5>
+
+			<ol>
+				[% FOR entry IN entries.slice(0,3) %]
+				<a href="#">[% i %] [% entry.title %] [% entry.date %]</a>
+				[% END %]
+			</ol>
+		</div>
+	</div>
 </body>
 </html>
