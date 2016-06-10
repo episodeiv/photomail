@@ -7,7 +7,7 @@
 
 	[% FOR image IN entry.images %]
 		<a class="lightbox" href="/entries/[% entry.id %]/[% image %]">
-			<img class="thumbnail" alt="[% image %]" src="/entries/[% entry.id %]/[% image %]">
+			<img class="thumbnail" alt="[% image %]" src="/thumb/[% entry.id %]/[% image %]">
 		</a>
 	[% END %]
 

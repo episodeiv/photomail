@@ -11,8 +11,6 @@ my %entries;
 
 refreshEntries();
 
-debug Dumper(%entries);
-
 sub addEntry {
 	debug "Adding entry";
 	my $entry = shift;
@@ -33,8 +31,6 @@ sub addEntry {
 		my $i = path($image->{tempfile});
 		$i->move(path($path, $image->{filename})) or die("Unable to move image ".$image->{filename}.": ".$!);
 	}
-
-	## TODO: Create thumbs
 }
 
 sub getNewID {

@@ -205,6 +205,22 @@ DISTRIBUTIONS
       strict 0
       vars 0
       warnings 0
+  Dancer-Plugin-Thumbnail-0.12
+    pathname: L/LO/LONERR/Dancer-Plugin-Thumbnail-0.12.tar.gz
+    provides:
+      Dancer::Plugin::Thumbnail 0.12
+    requirements:
+      Dancer 1.3071
+      ExtUtils::MakeMaker 6.59
+      GD 0
+      Image::Size 0
+      JSON::Any 0
+      List::Util 0
+      Object::Signature 0
+      POSIX 0
+      Test::More 0
+      lib::abs 0
+      perl 5.008
   Devel-StackTrace-2.01
     pathname: D/DR/DROLSKY/Devel-StackTrace-2.01.tar.gz
     provides:
@@ -352,6 +368,18 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       HTTP::Date 6
       perl 5.006002
+  GD-2.56
+    pathname: L/LD/LDS/GD-2.56.tar.gz
+    provides:
+      GD 2.56
+      GD::Group 1
+      GD::Polygon undef
+      GD::Polyline 0.2
+      GD::Simple undef
+    requirements:
+      ExtUtils::CBuilder 0
+      Math::Trig 0
+      Module::Build 0.42
   HTML-Parser-3.72
     pathname: G/GA/GAAS/HTML-Parser-3.72.tar.gz
     provides:
@@ -504,6 +532,26 @@ DISTRIBUTIONS
       Encode 2.10
       Exporter 5.57
       ExtUtils::MakeMaker 6.30
+  Image-Size-3.300
+    pathname: R/RJ/RJRAY/Image-Size-3.300.tar.gz
+    provides:
+      Image::Size 3.300
+    requirements:
+      ExtUtils::MakeMaker 0
+      File::Spec 0.8
+      Module::Build 0.28
+      Test::More 0.80
+  JSON-Any-1.39
+    pathname: E/ET/ETHER/JSON-Any-1.39.tar.gz
+    provides:
+      JSON::Any 1.39
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 0
+      constant 0
+      perl 5.008
+      strict 0
+      warnings 0
   LWP-MediaTypes-6.02
     pathname: G/GA/GAAS/LWP-MediaTypes-6.02.tar.gz
     provides:
@@ -706,6 +754,17 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       MD5 2.01
       MIME::Base64 2.11
+  Object-Signature-1.07
+    pathname: A/AD/ADAMK/Object-Signature-1.07.tar.gz
+    provides:
+      Object::Signature 1.07
+      Object::Signature::File 1.07
+    requirements:
+      Digest::MD5 2.00
+      ExtUtils::MakeMaker 6.42
+      Storable 2.11
+      Test::More 0.47
+      perl 5.005
   Parse-RecDescent-1.967013
     pathname: J/JT/JTBRAUN/Parse-RecDescent-1.967013.tar.gz
     provides:
@@ -1091,6 +1150,15 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       perl 5.008001
+  lib-abs-0.93
+    pathname: M/MO/MONS/lib-abs-0.93.tar.gz
+    provides:
+      lib::abs 0.93
+    requirements:
+      Cwd 3.12
+      ExtUtils::MakeMaker 6.59
+      Test::More 0
+      perl 5.006
   libwww-perl-6.15
     pathname: E/ET/ETHER/libwww-perl-6.15.tar.gz
     provides:
