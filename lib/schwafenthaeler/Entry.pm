@@ -96,37 +96,42 @@ sub readEntryFromDisk {
 	$entry->{text} = join('', @body);
 	$entry->{text_rendered} = markdown($entry->{text});
 
-	my $fileIterator = $entryPath->iterator;
-	while (my $file = $fileIterator->()) {
-		if($file->basename =~ /\.(?:jpe?g|png|gif)$/i) {
-			push(@{$entry->{images}}, $file->basename);
-		}
+	$entry->{images} = getImagesForEntry($id);
+
+	if(!path($entryPath, 'images.json')->is_file) {
+		writeImageSizes($id);
 	}
 
-	if(path($entryPath, 'images.json')->is_file) {
-		my $imageSizes = decode_json(path($entryPath, 'images.json')->slurp_utf8);
-		$entry->{imageSizes} = $imageSizes;
-	}
+	my $imageSizes = decode_json(path($entryPath, 'images.json')->slurp_utf8);
+	$entry->{imageSizes} = $imageSizes;
 
 	return $entry;
 }
 
+sub getImagesForEntry {
+	my $id = shift;
+	my @images;
+
+	my $entryPath = path(config->{public}, 'entries', $id);
+
+	my $fileIterator = $entryPath->iterator;
+	while (my $file = $fileIterator->()) {
+		if($file->basename =~ /\.(?:jpe?g|png|gif)$/i) {
+			push(@images, $file->basename);
+		}
+	}
+	return \@images;
+}
+
 sub writeImageSizes {
 	my $id = shift;
-	debug "Writing sizes for $id";
-
-	my $entry = readEntryFromDisk($id);
 
 	my %sizes;
 
-	for my $image(@{$entry->{images}}) {
-		debug "Calculating size for $image";
-
+	for my $image(@{getImagesForEntry($id)}) {
 		my $path = path(config->{public}, 'entries', $id, $image)->stringify;
 
 		($sizes{$image}->{width}, $sizes{$image}->{height}) = imgsize($path);
-
-		debug imgsize($path);
 	}
 
 	path(config->{public}, 'entries', $id, 'images.json')->spew_utf8(encode_json(\%sizes));
