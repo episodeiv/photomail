@@ -6,12 +6,13 @@
 	</header>
 
 	[% FOR image IN entry.images %]
-		<a class="lightbox" href="/entries/[% entry.id %]/[% image %]">
+		<a class="lightbox" href="/entries/[% entry.id %]/[% image %]"
+			data-width="[% entry.imageSizes.$image.width %]"
+			data-height="[% entry.imageSizes.$image.height %]">
 			<img class="thumbnail" alt="[% image %]" src="/thumb/[% entry.id %]/[% image %]">
 		</a>
 	[% END %]
 
 	[% entry.text_rendered %]
-
 </article>
 [% END %]

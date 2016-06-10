@@ -2,6 +2,8 @@ package schwafenthaeler::Entry;
 use Dancer ':syntax';
 use Data::Dumper;
 use Encode;
+use GD;
+use JSON;
 use List::Util qw/max/;
 use Path::Tiny;
 use Text::Markdown qw/markdown/;
@@ -30,7 +32,9 @@ sub addEntry {
 	for my $image (@{$entry->{images}}) {
 		my $i = path($image->{tempfile});
 		$i->move(path($path, $image->{filename})) or die("Unable to move image ".$image->{filename}.": ".$!);
+
 	}
+	writeImageSizes($id);
 }
 
 sub getNewID {
@@ -99,7 +103,34 @@ sub readEntryFromDisk {
 		}
 	}
 
+	my $imageSizes = decode_json(path($entryPath, 'images.json')->slurp_utf8);
+
+	$entry->{imageSizes} = $imageSizes;
+
 	return $entry;
+}
+
+sub writeImageSizes {
+	my $id = shift;
+	debug "Writing sizes for $id";
+
+	my $entry = readEntryFromDisk($id);
+
+	my %sizes;
+
+	for my $image(@{$entry->{images}}) {
+		debug "Calculating size for $image";
+
+		my $path = path(config->{public}, 'entries', $id, $image)->stringify;
+
+		my $gd = GD::Image->new($path);
+		my ($width,$height) = $gd->getBounds();
+
+		$sizes{$image}->{width} = $width;
+		$sizes{$image}->{height} = $height;
+	}
+
+	path(config->{public}, 'entries', $id, 'images.json')->spew_utf8(encode_json(\%sizes));
 }
 
 true;

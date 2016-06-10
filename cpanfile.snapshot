@@ -541,6 +541,15 @@ DISTRIBUTIONS
       File::Spec 0.8
       Module::Build 0.28
       Test::More 0.80
+  JSON-2.90
+    pathname: M/MA/MAKAMAKA/JSON-2.90.tar.gz
+    provides:
+      JSON 2.90
+      JSON::Backend::PP 2.90
+      JSON::Boolean 2.90
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0
   JSON-Any-1.39
     pathname: E/ET/ETHER/JSON-Any-1.39.tar.gz
     provides:

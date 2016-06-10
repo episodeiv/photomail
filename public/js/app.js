@@ -8,8 +8,8 @@ var prepareLightboxImages = function() {
 		var item = {};
 		item.src = $(this).attr('href');
 		// TODO: W/H
-		item.w = 600;
-		item.h = 600;
+		item.w = $(this).data('width');
+		item.h = $(this).data('height');
 
 		lightboxItems.push(item);
 

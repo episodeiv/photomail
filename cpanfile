@@ -3,6 +3,8 @@ requires 'Dancer::Plugin::Thumbnail';
 requires 'Net::IMAP::Simple';
 requires 'Email::MIME';
 requires 'File::Temp';
+requires 'GD';
+requires 'JSON';
 requires 'Path::Tiny';
 requires 'Template';
 requires 'Text::Markdown';
