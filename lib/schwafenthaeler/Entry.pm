@@ -62,6 +62,11 @@ sub getAllEntries {
 	return \@entryList;
 }
 
+sub getRecentEntries {
+	my @entries = @{getAllEntries()}[0..1];
+	return \@entries;
+}
+
 sub refreshEntries {
 	my $entryPath = path(config->{public}, 'entries');
 
