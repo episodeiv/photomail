@@ -62,7 +62,7 @@ sub processMessage {
 		return if $part->subparts; # multipart
 
 		if($part->content_type =~ m[text/plain]i) {
-			$entry->{body} = $part->body;
+			$entry->{body} = $part->body_str;
 		}
 		elsif($part->content_type =~ m[^image]i) {
 			push(@{$entry->{images}}, writeImage($part));

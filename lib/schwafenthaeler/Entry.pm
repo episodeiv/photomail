@@ -21,7 +21,6 @@ sub addEntry {
 	my $path = path(config->{public}, 'entries', $id);
 	mkdir($path) or die("Unable to create path: $!");
 
-	## TODO: Handle unicode better...
 	open(my $text, ">", path($path, 'entry.txt')) or die("Unable to create entry: $!");
 	binmode($text, ':utf8');
 	print $text $entry->{date}."\n";
