@@ -4,6 +4,7 @@ use Data::Dumper;
 use Encode;
 use List::Util qw/max/;
 use Path::Tiny;
+use Text::Markdown qw/markdown/;
 
 my $fetchedEntries = false;
 my %entries;
@@ -53,7 +54,11 @@ sub getEntry {
 }
 
 sub getAllEntries {
-	return %entries;
+	my @entryList;
+	for(sort(keys(%entries))) {
+		push(@entryList, $entries{$_});
+	}
+	return \@entryList;
 }
 
 sub refreshEntries {
@@ -85,10 +90,11 @@ sub readEntryFromDisk {
 	}
 
 	my @body = path($entryPath, 'entry.txt')->lines_utf8;
+	$entry->{id} = $id;
 	$entry->{date} = shift(@body);
 	$entry->{title} = shift(@body);
-	## TODO: Handle markdown
-	$entry->{text} = join('\n', @body);
+	$entry->{text} = join('', @body);
+	$entry->{text_rendered} = markdown($entry->{text});
 
 	my $fileIterator = $entryPath->iterator;
 	while (my $file = $fileIterator->()) {

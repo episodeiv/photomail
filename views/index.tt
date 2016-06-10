@@ -1,1 +1,17 @@
-Hello
+
+
+[% FOR entry IN entries %]
+<article>
+	<header>
+		<h1>[% entry.title %]</h1>
+		<p class="date">[% entry.date %]</p>
+	</header>
+
+	[% FOR image IN entry.images %]
+		<img src="/entries/[% entry.id %]/[% image %]">
+	[% END %]
+
+	[% entry.text_rendered %]
+
+</article>
+[% END %]
