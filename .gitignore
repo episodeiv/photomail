@@ -3,3 +3,4 @@
 logs
 local/*
 public/entries
+public/components

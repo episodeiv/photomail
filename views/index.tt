@@ -6,7 +6,9 @@
 	</header>
 
 	[% FOR image IN entry.images %]
-		<img class="thumbnail" alt="[% image %]" src="/entries/[% entry.id %]/[% image %]">
+		<a class="lightbox" href="/entries/[% entry.id %]/[% image %]">
+			<img class="thumbnail" alt="[% image %]" src="/entries/[% entry.id %]/[% image %]">
+		</a>
 	[% END %]
 
 	[% entry.text_rendered %]
