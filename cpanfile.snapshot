@@ -628,13 +628,6 @@ DISTRIBUTIONS
       IPC::Cmd 0
       XSLoader 0
       base 0
-  MD5-2.03
-    pathname: G/GA/GAAS/MD5-2.03.tar.gz
-    provides:
-      MD5 2.03
-    requirements:
-      Digest::MD5 2
-      ExtUtils::MakeMaker 0
   MIME-Types-2.13
     pathname: M/MA/MARKOV/MIME-Types-2.13.tar.gz
     provides:
@@ -647,34 +640,6 @@ DISTRIBUTIONS
       File::Spec 0
       List::Util 0
       Test::More 0.47
-  Mail-IMAPClient-3.38
-    pathname: P/PL/PLOBBES/Mail-IMAPClient-3.38.tar.gz
-    provides:
-      Mail::IMAPClient 3.38
-      Mail::IMAPClient::BodyStructure undef
-      Mail::IMAPClient::BodyStructure::Address undef
-      Mail::IMAPClient::BodyStructure::Envelope undef
-      Mail::IMAPClient::BodyStructure::Parse undef
-      Mail::IMAPClient::BodyStructure::Part undef
-      Mail::IMAPClient::MessageSet undef
-      Mail::IMAPClient::Thread undef
-      Parse::RecDescent::Mail::IMAPClient::BodyStructure::Parse undef
-      Parse::RecDescent::Mail::IMAPClient::Thread undef
-    requirements:
-      Carp 0
-      Errno 0
-      ExtUtils::MakeMaker 0
-      Fcntl 0
-      File::Temp 0
-      IO::File 0
-      IO::Select 0
-      IO::Socket 0
-      IO::Socket::INET 1.26
-      List::Util 0
-      MIME::Base64 0
-      Parse::RecDescent 1.94
-      Test::More 0
-      perl 5.008
   Module-Build-0.4218
     pathname: L/LE/LEONT/Module-Build-0.4218.tar.gz
     provides:
@@ -766,46 +731,6 @@ DISTRIBUTIONS
       IO::Socket 0
       Parse::RecDescent 0
       perl 5.008
-  NetxAP-0.02
-    pathname: K/KJ/KJOHNSON/NetxAP-0.02.tar.gz
-    provides:
-      Net undef
-      Net::IMAP 0.02
-      Net::IMAP::Acl 0.02
-      Net::IMAP::Addr 0.02
-      Net::IMAP::Bad 0.02
-      Net::IMAP::BodyStructure 0.02
-      Net::IMAP::Bodypart 0.02
-      Net::IMAP::Bye 0.02
-      Net::IMAP::Capability 0.02
-      Net::IMAP::Cond 0.02
-      Net::IMAP::Envelope 0.02
-      Net::IMAP::Exists 0.02
-      Net::IMAP::Expunge 0.02
-      Net::IMAP::Fetch 0.02
-      Net::IMAP::FetchData 0.02
-      Net::IMAP::Flags 0.02
-      Net::IMAP::List 0.02
-      Net::IMAP::Listrights 0.02
-      Net::IMAP::Lsub 0.02
-      Net::IMAP::Multipart 0.02
-      Net::IMAP::Myrights 0.02
-      Net::IMAP::Namespace 0.02
-      Net::IMAP::No 0.02
-      Net::IMAP::Ok 0.02
-      Net::IMAP::Quota 0.02
-      Net::IMAP::Quotaroot 0.02
-      Net::IMAP::Recent 0.02
-      Net::IMAP::Response 0.02
-      Net::IMAP::Search 0.02
-      Net::IMAP::Status 0.02
-      Net::IMAP::UntaggedResponse 0.02
-      Net::xAP 0.02
-      Net::xAP::Response 0.02
-    requirements:
-      ExtUtils::MakeMaker 0
-      MD5 2.01
-      MIME::Base64 2.11
   Object-Signature-1.07
     pathname: A/AD/ADAMK/Object-Signature-1.07.tar.gz
     provides:
