@@ -6,17 +6,18 @@ use v5.10;
 use FindBin;
 use Cwd qw/realpath/;
 use Dancer ':script';
-use Data::Dumper;
-use Email::MIME;
-use File::Temp qw/tempfile/;
-use Net::IMAP::Simple;
-
 use schwafenthaeler::Entry;
 
 my $appdir = realpath("$FindBin::Bin/..");
 
 Dancer::Config::setting('appdir', $appdir);
 Dancer::Config::load();
+
+use Data::Dumper;
+use Email::MIME;
+use File::Temp qw/tempfile/;
+use Net::IMAP::Simple;
+
 
 # Create the object
 my $imap = Net::IMAP::Simple->new(

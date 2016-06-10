@@ -2,8 +2,8 @@ package schwafenthaeler::Entry;
 use Dancer ':syntax';
 use Data::Dumper;
 use Encode;
-use GD;
-use JSON;
+use Image::Size;
+use JSON qw/decode_json encode_json/;
 use List::Util qw/max/;
 use Path::Tiny;
 use Text::Markdown qw/markdown/;
@@ -26,7 +26,7 @@ sub addEntry {
 	binmode($text, ':utf8');
 	print $text $entry->{date}."\n";
 	print $text $entry->{subject}."\n";
-	print $text $entry->{body};
+	print $text $entry->{body} // '';
 	close($text);
 
 	for my $image (@{$entry->{images}}) {
@@ -55,7 +55,7 @@ sub getEntry {
 
 sub getAllEntries {
 	my @entryList;
-	for(sort(keys(%entries))) {
+	for(reverse(sort(keys(%entries)))) {
 		push(@entryList, $entries{$_});
 	}
 	return \@entryList;
@@ -103,9 +103,10 @@ sub readEntryFromDisk {
 		}
 	}
 
-	my $imageSizes = decode_json(path($entryPath, 'images.json')->slurp_utf8);
-
-	$entry->{imageSizes} = $imageSizes;
+	if(path($entryPath, 'images.json')->is_file) {
+		my $imageSizes = decode_json(path($entryPath, 'images.json')->slurp_utf8);
+		$entry->{imageSizes} = $imageSizes;
+	}
 
 	return $entry;
 }
@@ -123,11 +124,9 @@ sub writeImageSizes {
 
 		my $path = path(config->{public}, 'entries', $id, $image)->stringify;
 
-		my $gd = GD::Image->new($path);
-		my ($width,$height) = $gd->getBounds();
+		($sizes{$image}->{width}, $sizes{$image}->{height}) = imgsize($path);
 
-		$sizes{$image}->{width} = $width;
-		$sizes{$image}->{height} = $height;
+		debug imgsize($path);
 	}
 
 	path(config->{public}, 'entries', $id, 'images.json')->spew_utf8(encode_json(\%sizes));
