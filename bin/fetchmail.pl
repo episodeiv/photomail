@@ -8,7 +8,10 @@ use Cwd qw/realpath/;
 use Dancer ':script';
 use Data::Dumper;
 use Email::MIME;
+use File::Temp qw/tempfile/;
 use Net::IMAP::Simple;
+
+use schwafenthaeler::Entry;
 
 my $appdir = realpath("$FindBin::Bin/..");
 
@@ -57,15 +60,29 @@ sub processMessage {
 		my ($part) = @_;
 		return if $part->subparts; # multipart
 
-		print "CT: ".$part->content_type."\n";
 		if($part->content_type =~ m[text/plain]i) {
 			$entry->{body} = $part->body;
 		}
 		elsif($part->content_type =~ m[^image]i) {
-			$entry->{image} = $part->filename;
+			push(@{$entry->{images}}, writeImage($part));
 		}
-
 	});
 
-	print Dumper($entry);
+	schwafenthaeler::Entry::addEntry($entry);
+}
+
+sub writeImage {
+	my $part = shift;
+
+	my ($fh, $tempfile) = tempfile();
+
+	binmode($fh);
+	print $fh $part->body;
+	close($fh);
+
+	return {
+		filename		=> $part->filename,
+		tempfile		=> $tempfile,
+		content_type	=> $part->content_type,
+	}
 }
