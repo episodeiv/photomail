@@ -1,6 +1,7 @@
 package schwafenthaeler::Entry;
 use Dancer ':syntax';
 use Data::Dumper;
+use Date::Format;
 use Encode;
 use Image::Size;
 use JSON qw/decode_json encode_json/;
@@ -91,7 +92,7 @@ sub readEntryFromDisk {
 
 	my @body = path($entryPath, 'entry.txt')->lines_utf8;
 	$entry->{id} = $id;
-	$entry->{date} = shift(@body);
+	$entry->{date} = time2str('%d.%m.%Y, %H:%m', shift(@body));
 	$entry->{title} = shift(@body);
 	$entry->{text} = join('', @body);
 	$entry->{text_rendered} = markdown($entry->{text});

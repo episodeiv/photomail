@@ -14,6 +14,7 @@ Dancer::Config::setting('appdir', $appdir);
 Dancer::Config::load();
 
 use Data::Dumper;
+use Date::Parse;
 use Email::MIME;
 use File::Temp qw/tempfile/;
 use Net::IMAP::Simple;
@@ -24,7 +25,7 @@ my $imap = Net::IMAP::Simple->new(
 	config->{email}->{server},
 	#debug => 1,
 ) || die "Unable to connect to IMAP: $Net::IMAP::Simple::errstr\n";
- 
+
 # Log on
 if(!$imap->login(config->{email}->{username}, config->{email}->{password})){
 	print STDERR "Login failed: " . $imap->errstr . "\n";
@@ -56,7 +57,7 @@ sub processMessage {
 	my $mail = Email::MIME->new(join('', @{$imap->get($id)}));
 
 	$entry->{subject} = $mail->header_str('subject');
-	$entry->{date} = $mail->header_str('Date');
+	$entry->{date} = str2time($mail->header_str('Date'));
 
 	$mail->walk_parts(sub {
 		my ($part) = @_;
