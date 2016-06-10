@@ -1,23 +1,15 @@
+[% FOR entry IN entries %]
+<article>
+	<header>
+		<h2>[% entry.title %]</h2>
+		<p class="date">[% entry.date %]</p>
+	</header>
 
+	[% FOR image IN entry.images %]
+		<img class="thumbnail" alt="[% image %]" src="/entries/[% entry.id %]/[% image %]">
+	[% END %]
 
-<div class="row">
-	<div class="large-8 medium-8 columns">
+	[% entry.text_rendered %]
 
-		[% FOR entry IN entries %]
-		<article>
-			<header>
-				<h2>[% entry.title %]</h2>
-				<p class="date">[% entry.date %]</p>
-			</header>
-
-			[% FOR image IN entry.images %]
-				<!--<img src="/entries/[% entry.id %]/[% image %]">-->
-			[% END %]
-
-			[% entry.text_rendered %]
-
-		</article>
-		[% END %]
-
-	</div>
-</div>
+</article>
+[% END %]
