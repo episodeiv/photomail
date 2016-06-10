@@ -29,7 +29,7 @@
 
 			<ol class="recent">
 				[% FOR entry IN vars.recent %]
-				<li><a href="/[% entry.id %]">[% entry.title %] [% entry.date %]</a></li>
+				<li><a href="/[% entry.id %]"><strong>[% entry.title %]</strong> vom [% entry.date %]</a></li>
 				[% END %]
 			</ol>
 		</div>

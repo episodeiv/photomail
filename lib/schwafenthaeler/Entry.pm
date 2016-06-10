@@ -63,8 +63,14 @@ sub getAllEntries {
 }
 
 sub getRecentEntries {
-	my @entries = @{getAllEntries()}[0..1];
-	return \@entries;
+	my @entries = @{getAllEntries()};
+	my $count = config->{recentEntries};
+	if($#entries < config->{recentEntries}) {
+		$count = $#entries;
+	}
+
+	my @recent = @entries[0..$count];
+	return \@recent;
 }
 
 sub refreshEntries {
