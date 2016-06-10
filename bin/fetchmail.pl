@@ -7,7 +7,7 @@ use FindBin;
 use Cwd qw/realpath/;
 use Dancer ':script';
 use Data::Dumper;
-use Email::Simple;
+use Email::MIME;
 use Net::IMAP::Simple;
 
 my $appdir = realpath("$FindBin::Bin/..");
@@ -23,8 +23,8 @@ my $imap = Net::IMAP::Simple->new(
  
 # Log on
 if(!$imap->login(config->{email}->{username}, config->{email}->{password})){
-    print STDERR "Login failed: " . $imap->errstr . "\n";
-    exit(64);
+	print STDERR "Login failed: " . $imap->errstr . "\n";
+	exit(64);
 }
 
 my $unseenNumber = $imap->unseen();
@@ -38,8 +38,34 @@ print "Processing $unseenNumber unseen message(s)\n";
 
 my @list = $imap->uidsearch('UNSEEN');
 for(@list) {
-	my $mail = Email::Simple->new(join '', @{ $imap->top($_)});
-	printf("[%03d] %s\n", $_, $mail->header('Subject'));
+	processMessage($_);
 }
 
 $imap->quit;
+
+sub processMessage {
+	my $id = shift;
+	print " -> Processing message $id\n";
+
+	my $entry;
+
+	my $mail = Email::MIME->new(join('', @{$imap->get($id)}));
+
+	$entry->{subject} = $mail->header_str('subject');
+
+	$mail->walk_parts(sub {
+		my ($part) = @_;
+		return if $part->subparts; # multipart
+
+		print "CT: ".$part->content_type."\n";
+		if($part->content_type =~ m[text/plain]i) {
+			$entry->{body} = $part->body;
+		}
+		elsif($part->content_type =~ m[^image]i) {
+			$entry->{image} = $part->filename;
+		}
+
+	});
+
+	print Dumper($entry);
+}
