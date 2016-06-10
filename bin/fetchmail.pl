@@ -55,6 +55,7 @@ sub processMessage {
 	my $mail = Email::MIME->new(join('', @{$imap->get($id)}));
 
 	$entry->{subject} = $mail->header_str('subject');
+	$entry->{date} = $mail->header_str('Date');
 
 	$mail->walk_parts(sub {
 		my ($part) = @_;
