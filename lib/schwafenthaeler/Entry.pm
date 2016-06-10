@@ -90,7 +90,12 @@ sub readEntryFromDisk {
 	## TODO: Handle markdown
 	$entry->{text} = join('\n', @body);
 
-	## TODO: Handle images
+	my $fileIterator = $entryPath->iterator;
+	while (my $file = $fileIterator->()) {
+		if($file->basename =~ /\.(?:jpe?g|png|gif)$/i) {
+			push(@{$entry->{images}}, $file->basename);
+		}
+	}
 
 	return $entry;
 }
