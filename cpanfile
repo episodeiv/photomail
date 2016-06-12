@@ -7,6 +7,7 @@ requires 'Email::MIME';
 requires 'File::Temp';
 requires 'JSON';
 requires 'Path::Tiny';
+requires 'Starman';
 requires 'Template';
 requires 'Text::Markdown';
 requires 'YAML';
