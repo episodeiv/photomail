@@ -1,16 +1,23 @@
-<article>
+
+<article class="blog-post">
 	<header>
-		<h2>[% entry.title %]</h2>
-		<p class="date">[% entry.date %]</p>
+		<h3>[% entry.title %] <small>[% entry.date %]</small></h3>
 	</header>
 
 	[% FOR image IN entry.images %]
-		<a class="lightbox" href="/entries/[% entry.id %]/[% image %]"
+		<a class="lightbox" href="/entries/[% entry.id %]/[% image | url%]"
 			data-width="[% entry.imageSizes.$image.width %]"
 			data-height="[% entry.imageSizes.$image.height %]">
-			<img class="thumbnail" alt="[% image %]" src="/thumb/[% entry.id %]/[% image %]">
+			<img class="thumbnail" alt="[% image %]" src="/thumb/[% entry.id %]/[% image | url %]">
 		</a>
 	[% END %]
 
 	[% entry.text_rendered %]
+
+	<div class="callout">
+					<ul class="menu simple">
+						<li><a href="#">Author: Mike Mikers</a></li>
+						<li><a href="#">Comments: 3</a></li>
+					</ul>
+	</div>
 </article>
