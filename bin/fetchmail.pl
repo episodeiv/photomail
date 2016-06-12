@@ -15,6 +15,7 @@ Dancer::Config::load();
 
 use Data::Dumper;
 use Date::Parse;
+use Email::Address;
 use Email::MIME;
 use File::Temp qw/tempfile/;
 use Net::IMAP::Simple;
@@ -62,6 +63,18 @@ sub processMessage {
 	my $entry;
 
 	my $mail = Email::MIME->new(join('', @{$imap->get($id)}));
+
+	my @from = Email::Address->parse($mail->header_str('from'));
+	if($#from > 0) {
+		print "  ... this looks suspicious, multiple senders. Skipping!\n";
+		return;
+	}
+
+	my ($match) = grep { $_ eq $from[0]->address } @{config->{allowedfrom}};
+	if(!$match) {
+		print "Invalid sender, skipping\n";
+		return;
+	}
 
 	$entry->{subject} = $mail->header_str('subject');
 	$entry->{date} = str2time($mail->header_str('Date'));

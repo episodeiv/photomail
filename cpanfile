@@ -3,6 +3,7 @@ requires 'Dancer::Plugin::Thumbnail';
 requires 'Date::Format';
 requires 'Date::Parse';
 requires 'Net::IMAP::Simple';
+requires 'Email::Address';
 requires 'Email::MIME';
 requires 'File::Temp';
 requires 'JSON';
