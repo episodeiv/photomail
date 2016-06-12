@@ -7,10 +7,20 @@ use schwafenthaeler::Entry;
 our $VERSION = '0.1';
 
 
-
 get '/' => sub {
-    template 'index', {
-    	entries => schwafenthaeler::Entry::getAllEntries(),
+	my $page = param('p') // 1;
+	my @entries = @{schwafenthaeler::Entry::getAllEntries()};
+
+	my $firstEntry = ($page - 1) * config->{pagination}->{page_size};
+	if($firstEntry > $#entries) {
+		$firstEntry = 0;
+	}
+	my $lastEntry = $firstEntry + config->{pagination}->{page_size} - 1;
+
+	my @shownEntries = @entries[$firstEntry..$lastEntry];
+
+	template 'index', {
+		entries => \@shownEntries,
 	};
 };
 
