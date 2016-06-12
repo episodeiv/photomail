@@ -32,7 +32,8 @@ sub addEntry {
 
 	for my $image (@{$entry->{images}}) {
 		my $i = path($image->{tempfile});
-		$i->move(path($path, $image->{filename})) or die("Unable to move image ".$image->{filename}.": ".$!);
+		$i->copy(path($path, $image->{filename})) or die("Unable to move image ".$image->{filename}.": ".$!);
+		$i->remove();
 
 	}
 	writeImageSizes($id);
