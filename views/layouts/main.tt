@@ -45,6 +45,10 @@
 	</div>
 </div>
 
+
+[% INCLUDE paginate.tt %]
+
+
 [% INCLUDE photoswipe.tt %]
 
 <script src="js/vendor/jquery.js"></script>
