@@ -14,10 +14,10 @@
 
 	[% entry.text_rendered %]
 
-	<div class="callout">
-					<ul class="menu simple">
-						<li><a href="#">Author: Mike Mikers</a></li>
-						<li><a href="#">Comments: 3</a></li>
-					</ul>
-	</div>
+	<!--<div class="callout">
+		<ul class="menu simple">
+			<li><a href="#">Author: Mike Mikers</a></li>
+			<li><a href="#">Comments: 3</a></li>
+		</ul>
+	</div>-->
 </article>
