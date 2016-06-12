@@ -48,6 +48,13 @@ for(@list) {
 
 $imap->quit;
 
+
+print "Running post-processing scripts\n";
+
+for(@{config->{fetchjobs}}) {
+	system($_);
+}
+
 sub processMessage {
 	my $id = shift;
 	print " -> Processing message $id\n";
