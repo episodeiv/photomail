@@ -11,9 +11,11 @@ our $VERSION = '0.1';
 get '/' => sub {
 	my @entries = @{schwafenthaeler::Entry::getAllEntries()};
 
+	## Pagination-Daten erzeugen
 	my $paginator;
 	$paginator->{page} = param('p') // 1;
 
+	## ersten/letzten Eintrag der aktuellen Seite ermitteln
 	$paginator->{firstEntry} = ($paginator->{page} - 1) * config->{pagination}->{page_size};
 	if($paginator->{firstEntry} > $#entries) {
 		$paginator->{firstEntry} = 0;
@@ -21,7 +23,24 @@ get '/' => sub {
 	}
 	$paginator->{lastEntry} = $paginator->{firstEntry} + config->{pagination}->{page_size} - 1;
 
+	## Seitenzahl ermitteln
 	$paginator->{maxPages} = floor($#entries / config->{pagination}->{page_size}) + 1;
+
+	## Größe des vor/nach der aktuellen Seite angezeigten Nav-Fensters ermitteln
+	if($paginator->{page} == 1) {
+		$paginator->{framePrevSize} = 0;
+	}
+	elsif($paginator->{page} <= config->{pagination}->{frame_size}) {
+		$paginator->{framePrevSize} = $paginator->{page} - 1;
+	}
+	else {
+		$paginator->{note} = "default";
+		$paginator->{framePrevSize} = config->{pagination}->{frame_size};
+	}
+
+	if($paginator->{page} - $paginator->{framePrevSize} > 1) {
+		$paginator->{framePrevSkipped} = true;
+	}
 
 	## Paginator im Template verfügbar machen
 	var paginator => $paginator;

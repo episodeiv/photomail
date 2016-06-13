@@ -1,5 +1,5 @@
 [% USE Dumper %]
-[% Dumper.dump(vars) %]
+[% Dumper.dump(vars.paginator) %]
 
 <div class="row column">
 	<ul class="pagination" role="navigation" aria-label="Pagination">
@@ -9,13 +9,22 @@
 			<li><a href="/?p=[% vars.paginator.page - 1 %]" aria-label="Neuere Einträge">Neuer</a></li>
 		[% END %]
 
-		<li class="current"><span class="show-for-sr">You're on page</span> 1</li>
-		<li><a href="#" aria-label="Page 2">2</a></li>
-		<li><a href="#" aria-label="Page 3">3</a></li>
-		<li><a href="#" aria-label="Page 4">4</a></li>
-		<li class="ellipsis"></li>
-		<li><a href="#" aria-label="Page 12">12</a></li>
-		<li><a href="#" aria-label="Page 13">13</a></li>
+		[% IF vars.paginator.framePrevSkipped %]
+			<li class="ellipsis"></li>
+		[% END %]
+
+		[% i = vars.paginator.framePrevSize %]
+		[% WHILE i > 0 %]
+			<li>
+				<a
+					href="/?p=[% vars.paginator.page - i %]"
+					aria-label="Seite [% vars.paginator.page - i %]">[% vars.paginator.page - i %]
+				</a>
+			</li>
+			[% i = i - 1 %]
+		[% END %]
+
+		<li class="current"><span class="show-for-sr">Aktuelle Seite</span> [% vars.paginator.page %]</li>
 
 		[% IF vars.paginator.page < vars.paginator.maxPages %]
 			<li><a href="/?p=[% vars.paginator.page + 1 %]" aria-label="Ältere Einträge">Älter</a></li>
