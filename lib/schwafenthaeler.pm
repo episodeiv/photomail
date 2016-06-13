@@ -34,13 +34,29 @@ get '/' => sub {
 		$paginator->{framePrevSize} = $paginator->{page} - 1;
 	}
 	else {
-		$paginator->{note} = "default";
 		$paginator->{framePrevSize} = config->{pagination}->{frame_size};
 	}
 
 	if($paginator->{page} - $paginator->{framePrevSize} > 1) {
 		$paginator->{framePrevSkipped} = true;
 	}
+
+
+
+	if($paginator->{page} == $paginator->{maxPages}) {
+		$paginator->{frameNextSize} = 0;
+	}
+	elsif($paginator->{page} + config->{pagination}->{frame_size} > $paginator->{maxPages}) {
+		$paginator->{frameNextSize} = $paginator->{maxPages} - $paginator->{page};
+	}
+	else {
+		$paginator->{frameNextSize} = config->{pagination}->{frame_size};
+	}
+
+	if($paginator->{page} + $paginator->{frameNextSize} < $paginator->{maxPages}) {
+		$paginator->{frameNextSkipped} = true;
+	}
+
 
 	## Paginator im Template verfügbar machen
 	var paginator => $paginator;
