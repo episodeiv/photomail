@@ -2,6 +2,7 @@ package schwafenthaeler;
 use Dancer ':syntax';
 use Dancer::Plugin::Thumbnail;
 use Path::Tiny;
+use POSIX;
 use schwafenthaeler::Entry;
 
 our $VERSION = '0.1';
@@ -19,6 +20,8 @@ get '/' => sub {
 		$paginator->{page} = 1;
 	}
 	$paginator->{lastEntry} = $paginator->{firstEntry} + config->{pagination}->{page_size} - 1;
+
+	$paginator->{maxPages} = floor($#entries / config->{pagination}->{page_size}) + 1;
 
 	## Paginator im Template verfügbar machen
 	var paginator => $paginator;

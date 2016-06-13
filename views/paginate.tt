@@ -6,7 +6,7 @@
 		[% IF vars.paginator.page == 1 %]
 			<li class="disabled">Neuer</li>
 		[% ELSE %]
-			<li><a href="/?p=[% vars.paginator.page - 1 %]">Neuer</a></li>
+			<li><a href="/?p=[% vars.paginator.page - 1 %]" aria-label="Neuere Einträge">Neuer</a></li>
 		[% END %]
 
 		<li class="current"><span class="show-for-sr">You're on page</span> 1</li>
@@ -17,6 +17,10 @@
 		<li><a href="#" aria-label="Page 12">12</a></li>
 		<li><a href="#" aria-label="Page 13">13</a></li>
 
-		<li><a href="#" aria-label="Next page">Next</a></li>
+		[% IF vars.paginator.page < vars.paginator.maxPages %]
+			<li><a href="/?p=[% vars.paginator.page + 1 %]" aria-label="Ältere Einträge">Älter</a></li>
+		[% ELSE %]
+			<li class="disabled">Älter</li>
+		[% END %]
 	</ul>
 </div>
