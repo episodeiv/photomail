@@ -14,6 +14,9 @@ get '/' => sub {
 	## Pagination-Daten erzeugen
 	my $paginator;
 	$paginator->{page} = param('p') // 1;
+	if($paginator->{page} < 1) {
+		$paginator->{page} = 1;
+	}
 
 	## ersten/letzten Eintrag der aktuellen Seite ermitteln
 	$paginator->{firstEntry} = ($paginator->{page} - 1) * config->{pagination}->{page_size};
