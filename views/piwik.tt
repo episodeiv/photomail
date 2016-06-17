@@ -1,0 +1,16 @@
+<!-- Piwik -->
+<script type="text/javascript">
+	var _paq = _paq || [];
+	_paq.push(["setDomains", ["*.schwafenthaeler.de","*.schwafenthäler.de"]]);
+	_paq.push(['trackPageView']);
+	_paq.push(['enableLinkTracking']);
+	(function() {
+		var u="//statistics.episode-iv.de/";
+		_paq.push(['setTrackerUrl', u+'piwik.php']);
+		_paq.push(['setSiteId', 6]);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'pst.js'; s.parentNode.insertBefore(g,s);
+	})();
+</script>
+<noscript><p><img src="//statistics.episode-iv.de/pst.php?idsite=6" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
