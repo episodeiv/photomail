@@ -37,6 +37,8 @@ sub addEntry {
 
 	}
 	writeImageSizes($id);
+
+	refreshEntries();
 }
 
 sub getNewID {
