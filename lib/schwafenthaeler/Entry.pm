@@ -59,7 +59,7 @@ sub getEntry {
 
 sub getAllEntries {
 	my @entryList;
-	for(reverse(sort(keys(%entries)))) {
+	for(reverse(sort {$a <=> $b} (keys(%entries)))) {
 		push(@entryList, $entries{$_});
 	}
 	return \@entryList;
