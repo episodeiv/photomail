@@ -3,7 +3,9 @@ use Dancer ':syntax';
 use Data::Dumper;
 use Date::Format;
 use Encode;
+use Image::ExifTool;
 use Image::Size;
+use Imager;
 use JSON qw/decode_json encode_json/;
 use List::Util qw/max/;
 use Path::Tiny;
@@ -32,9 +34,11 @@ sub addEntry {
 
 	for my $image (@{$entry->{images}}) {
 		my $i = path($image->{tempfile});
+
 		$i->copy(path($path, $image->{filename})) or die("Unable to move image ".$image->{filename}.": ".$!);
 		$i->remove();
 
+		fixJpegRotation(path($path, $image->{filename})->stringify);
 	}
 	writeImageSizes($id);
 
@@ -150,6 +154,53 @@ sub writeImageSizes {
 	}
 
 	path(config->{public}, 'entries', $id, 'images.json')->spew_utf8(encode_json(\%sizes));
+}
+
+sub fixJpegRotation {
+	my $imagePath = shift;
+
+	my $info = new Image::ExifTool;
+	$info->ExtractInfo($imagePath);
+	my $orientation = $info->GetValue('Orientation', 'ValueConv');
+
+	if(!defined($orientation)) {
+		debug "Image orientation could not be determined...";
+		return;
+	}
+
+	debug("Image orientation is $orientation");
+
+	my $img = Imager->new();
+
+	$img->read(file=>$imagePath, type=>'jpeg') or die($img->errstr());
+	if($orientation == 1) {
+		#noop
+	}
+	elsif($orientation == 2) {
+		$img = $img->flip(dir=>"h");
+	}
+	elsif($orientation == 3) {
+		$img = $img->rotate(degrees=>180);
+	}
+	elsif($orientation == 4) {
+		$img = $img->flip(dir=>"v");
+	}
+	elsif($orientation == 5) {
+		$img = $img->rotate(degrees=>90);
+		$img = $img->flip(dir=>"h");
+	}
+	elsif($orientation == 6) {
+		$img = $img->rotate(degrees=>90);
+	}
+	elsif($orientation == 7) {
+		$img = $img->rotate(degrees=>270);
+		$img = $img->flip(dir=>"h");
+	}
+	elsif($orientation == 8) {
+		$img = $img->rotate(degrees=>270);
+	}
+
+	$img->write(file=>$imagePath, type=>'jpeg') or die($img->errstr());
 }
 
 true;

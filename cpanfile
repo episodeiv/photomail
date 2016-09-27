@@ -6,6 +6,8 @@ requires 'Net::IMAP::Simple';
 requires 'Email::Address';
 requires 'Email::MIME';
 requires 'File::Temp';
+requires 'Image::ExifTool';
+requires 'Imager';
 requires 'JSON';
 requires 'Path::Tiny';
 requires 'Starman';

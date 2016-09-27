@@ -31,36 +31,28 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       Test::More 0
       perl 5.008008
-  CGI-4.30
-    pathname: L/LE/LEEJO/CGI-4.30.tar.gz
+  CGI-4.33
+    pathname: L/LE/LEEJO/CGI-4.33.tar.gz
     provides:
-      CGI 4.30
-      CGI::Carp 4.30
-      CGI::Cookie 4.30
-      CGI::File::Temp 4.30
+      CGI 4.33
+      CGI::Carp 4.33
+      CGI::Cookie 4.33
+      CGI::File::Temp 4.33
       CGI::HTML::Functions undef
-      CGI::MultipartBuffer 4.30
-      CGI::Pretty 4.30
-      CGI::Push 4.30
-      CGI::Util 4.30
-      Fh 4.30
+      CGI::MultipartBuffer 4.33
+      CGI::Pretty 4.33
+      CGI::Push 4.33
+      CGI::Util 4.33
+      Fh 4.33
     requirements:
       Carp 0
       Config 0
-      Cwd 0
       Encode 0
       Exporter 0
       ExtUtils::MakeMaker 0
-      File::Find 0
       File::Spec 0.82
-      File::Temp 0
+      File::Temp 0.17
       HTML::Entities 3.69
-      IO::File 0
-      IO::Handle 0
-      POSIX 0
-      Test::Deep 0.11
-      Test::More 0.98
-      Test::Warn 0.3
       base 0
       if 0
       overload 0
@@ -69,10 +61,10 @@ DISTRIBUTIONS
       strict 0
       utf8 0
       warnings 0
-  Capture-Tiny-0.42
-    pathname: D/DA/DAGOLDEN/Capture-Tiny-0.42.tar.gz
+  Capture-Tiny-0.44
+    pathname: D/DA/DAGOLDEN/Capture-Tiny-0.44.tar.gz
     provides:
-      Capture::Tiny 0.42
+      Capture::Tiny 0.44
     requirements:
       Carp 0
       Exporter 0
@@ -107,15 +99,22 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       Test::More 0
-  Cookie-Baker-0.06
-    pathname: K/KA/KAZEBURO/Cookie-Baker-0.06.tar.gz
+  Cookie-Baker-0.07
+    pathname: K/KA/KAZEBURO/Cookie-Baker-0.07.tar.gz
     provides:
-      Cookie::Baker 0.06
+      Cookie::Baker 0.07
     requirements:
       Exporter 0
       Module::Build 0.38
       URI::Escape 0
       perl 5.008001
+  Cpanel-JSON-XS-3.0217
+    pathname: R/RU/RURBAN/Cpanel-JSON-XS-3.0217.tar.gz
+    provides:
+      Cpanel::JSON::XS 3.0217
+    requirements:
+      ExtUtils::MakeMaker 0
+      Pod::Text 2.08
   Dancer-1.3202
     pathname: B/BI/BIGPRESH/Dancer-1.3202.tar.gz
     provides:
@@ -234,16 +233,16 @@ DISTRIBUTIONS
       strict 0
       vars 0
       warnings 0
-  Dancer-Plugin-Thumbnail-0.12
-    pathname: L/LO/LONERR/Dancer-Plugin-Thumbnail-0.12.tar.gz
+  Dancer-Plugin-Thumbnail-0.13
+    pathname: L/LO/LONERR/Dancer-Plugin-Thumbnail-0.13.tar.gz
     provides:
-      Dancer::Plugin::Thumbnail 0.12
+      Dancer::Plugin::Thumbnail 0.13
     requirements:
       Dancer 1.3071
       ExtUtils::MakeMaker 6.59
       GD 0
       Image::Size 0
-      JSON::Any 0
+      JSON::MaybeXS 0
       List::Util 0
       Object::Signature 0
       POSIX 0
@@ -414,22 +413,22 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 6.30
       strict 0
       warnings 0
-  ExtUtils-Helpers-0.022
-    pathname: L/LE/LEONT/ExtUtils-Helpers-0.022.tar.gz
+  ExtUtils-Helpers-0.026
+    pathname: L/LE/LEONT/ExtUtils-Helpers-0.026.tar.gz
     provides:
-      ExtUtils::Helpers 0.022
-      ExtUtils::Helpers::Unix 0.022
-      ExtUtils::Helpers::VMS 0.022
-      ExtUtils::Helpers::Windows 0.022
+      ExtUtils::Helpers 0.026
+      ExtUtils::Helpers::Unix 0.026
+      ExtUtils::Helpers::VMS 0.026
+      ExtUtils::Helpers::Windows 0.026
     requirements:
       Carp 0
       Exporter 5.57
-      ExtUtils::MakeMaker 6.30
+      ExtUtils::MakeMaker 0
       File::Basename 0
       File::Copy 0
       File::Spec::Functions 0
-      Module::Load 0
       Text::ParseWords 3.24
+      perl 5.006
       strict 0
       warnings 0
   ExtUtils-InstallPaths-0.011
@@ -469,14 +468,19 @@ DISTRIBUTIONS
       File::Spec 0.80
       perl 5.008001
       warnings 0
-  File-ShareDir-Install-0.10
-    pathname: G/GW/GWYN/File-ShareDir-Install-0.10.tar.gz
+  File-ShareDir-Install-0.11
+    pathname: E/ET/ETHER/File-ShareDir-Install-0.11.tar.gz
     provides:
-      File::ShareDir::Install 0.10
+      File::ShareDir::Install 0.11
     requirements:
-      ExtUtils::MakeMaker 6.11
+      Carp 0
+      Exporter 0
       File::Spec 0
       IO::Dir 0
+      Module::Build::Tiny 0.034
+      perl 5.008
+      strict 0
+      warnings 0
   Filesys-Notify-Simple-0.12
     pathname: M/MI/MIYAGAWA/Filesys-Notify-Simple-0.12.tar.gz
     provides:
@@ -670,6 +674,163 @@ DISTRIBUTIONS
       Encode 2.10
       Exporter 5.57
       ExtUtils::MakeMaker 6.30
+  Image-ExifTool-10.20
+    pathname: E/EX/EXIFTOOL/Image-ExifTool-10.20.tar.gz
+    provides:
+      File::RandomAccess 1.10
+      Image::ExifTool 10.20
+      Image::ExifTool::AES 1.01
+      Image::ExifTool::AFCP 1.07
+      Image::ExifTool::AIFF 1.07
+      Image::ExifTool::APE 1.05
+      Image::ExifTool::APP12 1.13
+      Image::ExifTool::ASF 1.23
+      Image::ExifTool::Apple 1.02
+      Image::ExifTool::Audible 1.02
+      Image::ExifTool::BMP 1.08
+      Image::ExifTool::BZZ 1.00
+      Image::ExifTool::BigTIFF 1.06
+      Image::ExifTool::BuildTagLookup 2.96
+      Image::ExifTool::Canon 3.63
+      Image::ExifTool::CanonCustom 1.53
+      Image::ExifTool::CanonRaw 1.58
+      Image::ExifTool::CanonVRD 1.28
+      Image::ExifTool::CaptureOne 1.04
+      Image::ExifTool::Casio 1.37
+      Image::ExifTool::Charset 1.09
+      Image::ExifTool::DICOM 1.19
+      Image::ExifTool::DNG 1.22
+      Image::ExifTool::DPX 1.02
+      Image::ExifTool::DV 1.01
+      Image::ExifTool::DarwinCore 1.01
+      Image::ExifTool::DjVu 1.05
+      Image::ExifTool::EXE 1.13
+      Image::ExifTool::Exif 3.82
+      Image::ExifTool::FLAC 1.07
+      Image::ExifTool::FLIR 1.14
+      Image::ExifTool::Fixup 1.05
+      Image::ExifTool::Flash 1.12
+      Image::ExifTool::FlashPix 1.26
+      Image::ExifTool::Font 1.08
+      Image::ExifTool::FotoStation 1.04
+      Image::ExifTool::FujiFilm 1.53
+      Image::ExifTool::GE 1.00
+      Image::ExifTool::GIF 1.12
+      Image::ExifTool::GIMP 1.02
+      Image::ExifTool::GPS 1.45
+      Image::ExifTool::GeoTiff 1.11
+      Image::ExifTool::Geotag 1.48
+      Image::ExifTool::H264 1.14
+      Image::ExifTool::HP 1.04
+      Image::ExifTool::HTML 1.15
+      Image::ExifTool::HtmlDump 1.33
+      Image::ExifTool::ICC_Profile 1.30
+      Image::ExifTool::ID3 1.47
+      Image::ExifTool::IPTC 1.53
+      Image::ExifTool::ISO 1.01
+      Image::ExifTool::ITC 1.02
+      Image::ExifTool::Import 1.05
+      Image::ExifTool::InDesign 1.04
+      Image::ExifTool::JPEG 1.25
+      Image::ExifTool::JPEGDigest 1.05
+      Image::ExifTool::JVC 1.03
+      Image::ExifTool::Jpeg2000 1.25
+      Image::ExifTool::Kodak 1.41
+      Image::ExifTool::KyoceraRaw 1.03
+      Image::ExifTool::LNK 1.07
+      Image::ExifTool::Lang::cs 1.07
+      Image::ExifTool::Lang::de 1.30
+      Image::ExifTool::Lang::en_ca 1.10
+      Image::ExifTool::Lang::en_gb 1.11
+      Image::ExifTool::Lang::es 1.14
+      Image::ExifTool::Lang::fi 1.02
+      Image::ExifTool::Lang::fr 1.30
+      Image::ExifTool::Lang::it 1.12
+      Image::ExifTool::Lang::ja 1.22
+      Image::ExifTool::Lang::ko 1.06
+      Image::ExifTool::Lang::nl 1.11
+      Image::ExifTool::Lang::pl 1.10
+      Image::ExifTool::Lang::ru 1.04
+      Image::ExifTool::Lang::sv 1.05
+      Image::ExifTool::Lang::tr 1.04
+      Image::ExifTool::Lang::zh_cn 1.08
+      Image::ExifTool::Lang::zh_tw 1.06
+      Image::ExifTool::Leaf 1.06
+      Image::ExifTool::Lytro 1.02
+      Image::ExifTool::M2TS 1.12
+      Image::ExifTool::MIE 1.45
+      Image::ExifTool::MIFF 1.07
+      Image::ExifTool::MNG 1.00
+      Image::ExifTool::MOI 1.02
+      Image::ExifTool::MPC 1.01
+      Image::ExifTool::MPEG 1.15
+      Image::ExifTool::MPF 1.12
+      Image::ExifTool::MWG 1.16
+      Image::ExifTool::MXF 1.08
+      Image::ExifTool::MakerNotes 1.98
+      Image::ExifTool::Matroska 1.07
+      Image::ExifTool::Microsoft 1.17
+      Image::ExifTool::Minolta 2.34
+      Image::ExifTool::MinoltaRaw 1.14
+      Image::ExifTool::Motorola 1.00
+      Image::ExifTool::Nikon 3.21
+      Image::ExifTool::NikonCapture 1.14
+      Image::ExifTool::NikonCustom 1.13
+      Image::ExifTool::Nintendo 1.00
+      Image::ExifTool::OOXML 1.07
+      Image::ExifTool::Ogg 1.01
+      Image::ExifTool::Olympus 2.41
+      Image::ExifTool::OpenEXR 1.02
+      Image::ExifTool::PDF 1.41
+      Image::ExifTool::PGF 1.02
+      Image::ExifTool::PICT 1.05
+      Image::ExifTool::PLIST 1.06
+      Image::ExifTool::PLUS 1.00
+      Image::ExifTool::PNG 1.36
+      Image::ExifTool::PPM 1.08
+      Image::ExifTool::PSP 1.05
+      Image::ExifTool::Palm 1.00
+      Image::ExifTool::Panasonic 1.91
+      Image::ExifTool::PanasonicRaw 1.09
+      Image::ExifTool::Pentax 3.04
+      Image::ExifTool::PhaseOne 1.03
+      Image::ExifTool::PhotoCD 1.01
+      Image::ExifTool::PhotoMechanic 1.04
+      Image::ExifTool::Photoshop 1.49
+      Image::ExifTool::PostScript 1.41
+      Image::ExifTool::PrintIM 1.07
+      Image::ExifTool::Qualcomm 1.01
+      Image::ExifTool::QuickTime 1.96
+      Image::ExifTool::RIFF 1.41
+      Image::ExifTool::RSRC 1.08
+      Image::ExifTool::RTF 1.02
+      Image::ExifTool::Radiance 1.01
+      Image::ExifTool::Rawzor 1.04
+      Image::ExifTool::Real 1.06
+      Image::ExifTool::Reconyx 1.04
+      Image::ExifTool::Ricoh 1.31
+      Image::ExifTool::Samsung 1.33
+      Image::ExifTool::Sanyo 1.16
+      Image::ExifTool::Scalado 1.01
+      Image::ExifTool::Shortcuts 1.57
+      Image::ExifTool::Sigma 1.20
+      Image::ExifTool::SigmaRaw 1.25
+      Image::ExifTool::Sony 2.39
+      Image::ExifTool::SonyIDC 1.05
+      Image::ExifTool::Stim 1.01
+      Image::ExifTool::TagInfoXML 1.28
+      Image::ExifTool::TagLookup 1.13
+      Image::ExifTool::Theora 1.00
+      Image::ExifTool::Torrent 1.03
+      Image::ExifTool::Unknown 1.13
+      Image::ExifTool::VCard 1.04
+      Image::ExifTool::Vorbis 1.08
+      Image::ExifTool::XMP 2.92
+      Image::ExifTool::ZIP 1.18
+      Image::ExifTool::iWork 1.04
+    requirements:
+      ExtUtils::MakeMaker 0
+      perl 5.004
   Image-Size-3.300
     pathname: R/RJ/RJRAY/Image-Size-3.300.tar.gz
     provides:
@@ -731,17 +892,20 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       Test::More 0
-  JSON-Any-1.39
-    pathname: E/ET/ETHER/JSON-Any-1.39.tar.gz
+  JSON-MaybeXS-1.003007
+    pathname: E/ET/ETHER/JSON-MaybeXS-1.003007.tar.gz
     provides:
-      JSON::Any 1.39
+      JSON::MaybeXS 1.003007
     requirements:
       Carp 0
+      Cpanel::JSON::XS 2.3310
+      ExtUtils::CBuilder 0.27
       ExtUtils::MakeMaker 0
-      constant 0
-      perl 5.008
-      strict 0
-      warnings 0
+      File::Spec 0
+      File::Temp 0
+      JSON::PP 2.27300
+      Scalar::Util 0
+      perl 5.006
   LWP-MediaTypes-6.02
     pathname: G/GA/GAAS/LWP-MediaTypes-6.02.tar.gz
     provides:
@@ -749,12 +913,12 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       perl 5.006002
-  List-MoreUtils-0.415
-    pathname: R/RE/REHSACK/List-MoreUtils-0.415.tar.gz
+  List-MoreUtils-0.416
+    pathname: R/RE/REHSACK/List-MoreUtils-0.416.tar.gz
     provides:
-      List::MoreUtils 0.415
-      List::MoreUtils::PP 0.415
-      List::MoreUtils::XS 0.415
+      List::MoreUtils 0.416
+      List::MoreUtils::PP 0.416
+      List::MoreUtils::XS 0.416
     requirements:
       Carp 0
       Exporter::Tiny 0.038
@@ -764,7 +928,7 @@ DISTRIBUTIONS
       File::Path 0
       File::Spec 0
       IPC::Cmd 0
-      XSLoader 0
+      XSLoader 0.22
       base 0
   MIME-Types-2.13
     pathname: M/MA/MARKOV/MIME-Types-2.13.tar.gz
@@ -778,28 +942,28 @@ DISTRIBUTIONS
       File::Spec 0
       List::Util 0
       Test::More 0.47
-  Module-Build-0.4218
-    pathname: L/LE/LEONT/Module-Build-0.4218.tar.gz
+  Module-Build-0.4220
+    pathname: L/LE/LEONT/Module-Build-0.4220.tar.gz
     provides:
-      Module::Build 0.4218
-      Module::Build::Base 0.4218
-      Module::Build::Compat 0.4218
-      Module::Build::Config 0.4218
-      Module::Build::Cookbook 0.4218
-      Module::Build::Dumper 0.4218
-      Module::Build::Notes 0.4218
-      Module::Build::PPMMaker 0.4218
-      Module::Build::Platform::Default 0.4218
-      Module::Build::Platform::MacOS 0.4218
-      Module::Build::Platform::Unix 0.4218
-      Module::Build::Platform::VMS 0.4218
-      Module::Build::Platform::VOS 0.4218
-      Module::Build::Platform::Windows 0.4218
-      Module::Build::Platform::aix 0.4218
-      Module::Build::Platform::cygwin 0.4218
-      Module::Build::Platform::darwin 0.4218
-      Module::Build::Platform::os2 0.4218
-      Module::Build::PodParser 0.4218
+      Module::Build 0.4220
+      Module::Build::Base 0.4220
+      Module::Build::Compat 0.4220
+      Module::Build::Config 0.4220
+      Module::Build::Cookbook 0.4220
+      Module::Build::Dumper 0.4220
+      Module::Build::Notes 0.4220
+      Module::Build::PPMMaker 0.4220
+      Module::Build::Platform::Default 0.4220
+      Module::Build::Platform::MacOS 0.4220
+      Module::Build::Platform::Unix 0.4220
+      Module::Build::Platform::VMS 0.4220
+      Module::Build::Platform::VOS 0.4220
+      Module::Build::Platform::Windows 0.4220
+      Module::Build::Platform::aix 0.4220
+      Module::Build::Platform::cygwin 0.4220
+      Module::Build::Platform::darwin 0.4220
+      Module::Build::Platform::os2 0.4220
+      Module::Build::PodParser 0.4220
     requirements:
       CPAN::Meta 2.142060
       CPAN::Meta::YAML 0.003
@@ -938,10 +1102,10 @@ DISTRIBUTIONS
       Storable 2.11
       Test::More 0.47
       perl 5.005
-  POSIX-strftime-Compiler-0.41
-    pathname: K/KA/KAZEBURO/POSIX-strftime-Compiler-0.41.tar.gz
+  POSIX-strftime-Compiler-0.42
+    pathname: K/KA/KAZEBURO/POSIX-strftime-Compiler-0.42.tar.gz
     provides:
-      POSIX::strftime::Compiler 0.41
+      POSIX::strftime::Compiler 0.42
     requirements:
       Carp 0
       Exporter 0
@@ -973,11 +1137,11 @@ DISTRIBUTIONS
     requirements:
       Test::More 0
       Text::Balanced 1.95
-  Path-Tiny-0.094
-    pathname: D/DA/DAGOLDEN/Path-Tiny-0.094.tar.gz
+  Path-Tiny-0.096
+    pathname: D/DA/DAGOLDEN/Path-Tiny-0.096.tar.gz
     provides:
-      Path::Tiny 0.094
-      Path::Tiny::Error 0.094
+      Path::Tiny 0.096
+      Path::Tiny::Error 0.096
     requirements:
       Carp 0
       Cwd 0
@@ -1124,10 +1288,10 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 6.30
       IO::File 1.14
-  Sub-Uplevel-0.25
-    pathname: D/DA/DAGOLDEN/Sub-Uplevel-0.25.tar.gz
+  Sub-Uplevel-0.2600
+    pathname: D/DA/DAGOLDEN/Sub-Uplevel-0.2600.tar.gz
     provides:
-      Sub::Uplevel 0.25
+      Sub::Uplevel 0.2600
     requirements:
       Carp 0
       ExtUtils::MakeMaker 6.17
@@ -1196,10 +1360,10 @@ DISTRIBUTIONS
       File::Temp 0.12
       Scalar::Util 0
       Test::LeakTrace 0
-  Test-Deep-1.120
-    pathname: R/RJ/RJBS/Test-Deep-1.120.tar.gz
+  Test-Deep-1.123
+    pathname: R/RJ/RJBS/Test-Deep-1.123.tar.gz
     provides:
-      Test::Deep 1.120
+      Test::Deep 1.123
       Test::Deep::All undef
       Test::Deep::Any undef
       Test::Deep::Array undef
@@ -1290,20 +1454,20 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 6.59
       Test::More 0.62
       perl 5.008001
-  Test-Most-0.34
-    pathname: O/OV/OVID/Test-Most-0.34.tar.gz
+  Test-Most-0.35
+    pathname: O/OV/OVID/Test-Most-0.35.tar.gz
     provides:
-      Test::Most 0.34
-      Test::Most::Exception 0.34
+      Test::Most 0.35
+      Test::Most::Exception 0.35
     requirements:
       Exception::Class 1.14
       ExtUtils::MakeMaker 0
-      Test::Deep 0.106
-      Test::Differences 0.61
-      Test::Exception 0.31
-      Test::Harness 3.21
-      Test::More 0.88
-      Test::Warn 0.23
+      Test::Deep 0.119
+      Test::Differences 0.64
+      Test::Exception 0.43
+      Test::Harness 3.35
+      Test::More 1.302047
+      Test::Warn 0.30
   Test-SharedFork-0.35
     pathname: E/EX/EXODIST/Test-SharedFork-0.35.tar.gz
     provides:
@@ -1318,11 +1482,70 @@ DISTRIBUTIONS
       Test::Builder::Module 0
       Test::More 0.88
       perl 5.008_001
-  Test-TCP-2.16
-    pathname: T/TO/TOKUHIROM/Test-TCP-2.16.tar.gz
+  Test-Simple-1.302056
+    pathname: E/EX/EXODIST/Test-Simple-1.302056.tar.gz
+    provides:
+      Test2 1.302056
+      Test2::API 1.302056
+      Test2::API::Breakage 1.302056
+      Test2::API::Context 1.302056
+      Test2::API::Instance 1.302056
+      Test2::API::Stack 1.302056
+      Test2::Event 1.302056
+      Test2::Event::Bail 1.302056
+      Test2::Event::Diag 1.302056
+      Test2::Event::Exception 1.302056
+      Test2::Event::Generic 1.302056
+      Test2::Event::Info 1.302056
+      Test2::Event::Note 1.302056
+      Test2::Event::Ok 1.302056
+      Test2::Event::Plan 1.302056
+      Test2::Event::Skip 1.302056
+      Test2::Event::Subtest 1.302056
+      Test2::Event::Waiting 1.302056
+      Test2::Formatter 1.302056
+      Test2::Formatter::TAP 1.302056
+      Test2::Hub 1.302056
+      Test2::Hub::Interceptor 1.302056
+      Test2::Hub::Interceptor::Terminator 1.302056
+      Test2::Hub::Subtest 1.302056
+      Test2::IPC 1.302056
+      Test2::IPC::Driver 1.302056
+      Test2::IPC::Driver::Files 1.302056
+      Test2::Util 1.302056
+      Test2::Util::ExternalMeta 1.302056
+      Test2::Util::HashBase 1.302056
+      Test2::Util::Trace 1.302056
+      Test::Builder 1.302056
+      Test::Builder::Formatter 1.302056
+      Test::Builder::IO::Scalar 2.113
+      Test::Builder::Module 1.302056
+      Test::Builder::Tester 1.302056
+      Test::Builder::Tester::Color 1.302056
+      Test::Builder::Tester::Tie 1.302056
+      Test::Builder::TodoDiag 1.302056
+      Test::More 1.302056
+      Test::Simple 1.302056
+      Test::Tester 1.302056
+      Test::Tester::Capture 1.302056
+      Test::Tester::CaptureRunner 1.302056
+      Test::Tester::Delegate 1.302056
+      Test::use::ok 1.302056
+      ok 1.302056
+    requirements:
+      ExtUtils::MakeMaker 0
+      File::Spec 0
+      File::Temp 0
+      PerlIO 0
+      Scalar::Util 1.13
+      Storable 0
+      perl 5.008001
+      utf8 0
+  Test-TCP-2.17
+    pathname: S/SY/SYOHEX/Test-TCP-2.17.tar.gz
     provides:
       Net::EmptyPort undef
-      Test::TCP 2.16
+      Test::TCP 2.17
       Test::TCP::CheckPort undef
     requirements:
       ExtUtils::MakeMaker 6.64
@@ -1415,10 +1638,10 @@ DISTRIBUTIONS
       Time::Zone 2.24
     requirements:
       ExtUtils::MakeMaker 0
-  Try-Tiny-0.24
-    pathname: E/ET/ETHER/Try-Tiny-0.24.tar.gz
+  Try-Tiny-0.27
+    pathname: E/ET/ETHER/Try-Tiny-0.27.tar.gz
     provides:
-      Try::Tiny 0.24
+      Try::Tiny 0.27
     requirements:
       Carp 0
       Exporter 5.57
@@ -1503,18 +1726,25 @@ DISTRIBUTIONS
       Fcntl 0
       URI 1.10
       perl 5.008001
-  YAML-1.15
-    pathname: I/IN/INGY/YAML-1.15.tar.gz
+  XSLoader-0.24
+    pathname: S/SA/SAPER/XSLoader-0.24.tar.gz
     provides:
-      YAML 1.15
-      YAML::Any 1.15
+      XSLoader 0.24
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0.47
+  YAML-1.18
+    pathname: T/TI/TINITA/YAML-1.18.tar.gz
+    provides:
+      YAML 1.18
+      YAML::Any 1.18
       YAML::Dumper undef
       YAML::Dumper::Base undef
       YAML::Error undef
       YAML::Loader undef
       YAML::Loader::Base undef
       YAML::Marshall undef
-      YAML::Mo 0.88
+      YAML::Mo undef
       YAML::Node undef
       YAML::Tag undef
       YAML::Type::blessed undef
