@@ -83,7 +83,7 @@ sub processMessage {
 		my ($part) = @_;
 		return if $part->subparts; # multipart
 
-		if($part->content_type =~ m[text/plain]i) {
+		if($part->content_type =~ m[text/plain]i && length($part->body_str) > config->{minbodylength}) {
 			$entry->{body} = $part->body_str;
 		}
 		elsif($part->content_type =~ m[^image]i) {
