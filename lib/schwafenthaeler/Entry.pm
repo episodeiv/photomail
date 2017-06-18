@@ -73,7 +73,7 @@ sub getRecentEntries {
 	my @entries = @{getAllEntries()};
 	my $count = config->{recentEntries};
 	if($#entries < config->{recentEntries}) {
-		$count = $#entries;
+		$count = $#entries-1;
 	}
 
 	my @recent = @entries[0..$count];
