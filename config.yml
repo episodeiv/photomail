@@ -1,0 +1,46 @@
+# This is the main configuration file of your Dancer app
+# env-related settings should go to environments/$env.yml.
+# All the settings in this file will be loaded at Dancer's startup.
+
+# Your application's name
+appname: "schwafenthaeler"
+
+# The default layout to use for your application (located in
+# views/layouts/main.tt)
+layout: "main"
+
+# When the charset is set to UTF-8 Dancer will handle for you
+# all the magic of encoding and decoding. You should not care
+# about unicode within your app when this setting is set (recommended).
+charset: "UTF-8"
+
+# template engine
+# simple: default and very basic template engine
+# template_toolkit: TT
+
+template: "template_toolkit"
+engines:
+  template_toolkit:
+    start_tag: '[%'
+    end_tag:   '%]'
+
+# For session support enable the following line and see Dancer::Session
+# session: "YAML"
+
+plugins:
+    Thumbnail:
+        cache: cache/thumbnails
+        compression: 7
+        quality: 50
+
+allowedfrom:
+  - your_address@gmail.com
+  - your_other_address@hotmail.whatever
+
+minbodylength: 10
+
+recentEntries: 10
+
+pagination:
+  page_size: 5
+  frame_size: 3
