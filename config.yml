@@ -27,6 +27,8 @@ engines:
 # For session support enable the following line and see Dancer::Session
 # session: "YAML"
 
+title: "Your photo blog"
+
 plugins:
     Thumbnail:
         cache: cache/thumbnails
